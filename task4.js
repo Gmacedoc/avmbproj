@@ -10,15 +10,15 @@ function marvelHeroes(){
     req.open('GET', web, true);
 
     req.setRequestHeader('Content-Type', 'application/json');
-    var nomes = [];
+    var characters = [];
     req.addEventListener('load', function(){
         if(req.status >= 200 && req.status < 400){
             var result = JSON.parse(req.responseText);
             result.data.results.forEach(element => {
-                nomes.push(element.name);
+                characters.push(element);
             });
         }
     });
 
-    return nomes;
+    return characters;
 }
